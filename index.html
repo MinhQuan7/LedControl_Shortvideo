@@ -1,0 +1,93 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://www.unpkg.com/@eohjsc/era-widget@1.1.3/src/index.js"></script>
+    <title>LED Control IFrame</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+      .container {
+        text-align: center;
+      }
+      .title {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      .led-control {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+      .led-box {
+        width: 150px;
+        height: 150px;
+        border: 2px solid black;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      .led-box img {
+        width: 50px;
+        height: 50px;
+      }
+      .led-box p {
+        margin: 10px 0 0;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="title">LED Control IFrame</div>
+      <div class="led-control">
+        <div class="led-box" id="led-on">
+          <p>ON</p>
+          <img
+            alt="Light bulb icon representing ON state"
+            src="https://storage.googleapis.com/a1aa/image/4XiCHZ5Ks4dy3jMa9lDxXA9LA02pAuFKpsbCspPc1b8.jpg"
+          />
+        </div>
+        <div class="led-box" id="led-off">
+          <p>OFF</p>
+          <img
+            alt="Light bulb icon representing OFF state"
+            src="https://storage.googleapis.com/a1aa/image/esmjp0-7fFL73xy8bbhUE-Zh7qCNCucnR5fnNZy5y0s.jpg"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const eraWidget = new EraWidget();
+      let onLight = null;
+      let offLight = null;
+      eraWidget.init({
+        onConfiguration: (configuration) => {
+          onLight = configuration.actions[0];
+          offLight = configuration.actions[1];
+        },
+        onValues: (values) => {},
+      });
+
+      document
+        .getElementById("led-on")
+        .addEventListener("click", function () {});
+      eraWidget.triggerAction(onLight.action, null);
+
+      document
+        .getElementById("led-off")
+        .addEventListener("click", function () {});
+      eraWidget.triggerAction(offLight.action, null);
+    </script>
+  </body>
+</html>
