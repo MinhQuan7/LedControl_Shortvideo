@@ -1,9 +1,10 @@
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-
     <title>LED Control IFrame</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -21,48 +22,44 @@
         font-size: 24px;
         margin-bottom: 20px;
       }
-      .led-control {
+      .controls {
         display: flex;
         justify-content: center;
-        gap: 20px;
       }
-      .led-box {
-        width: 150px;
+      .control {
+        border: 1px solid black;
+        padding: 20px;
+        margin: 0 10px;
+        width: 100px;
         height: 150px;
-        border: 2px solid black;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        cursor: pointer;
+        justify-content: center;
       }
-      .led-box img {
-        width: 50px;
-        height: 50px;
+      .control i {
+        font-size: 50px;
+        margin-top: 10px;
       }
-      .led-box p {
-        margin: 10px 0 0;
-        font-size: 18px;
+      .control.on i {
+        color: yellow;
+      }
+      .control.off i {
+        color: gray;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="title">LED Control IFrame</div>
-      <div class="led-control">
-        <div class="led-box" id="led-on">
-          <p>ON</p>
-          <img
-            alt="Light bulb icon representing ON state"
-            src="https://storage.googleapis.com/a1aa/image/4XiCHZ5Ks4dy3jMa9lDxXA9LA02pAuFKpsbCspPc1b8.jpg"
-          />
+      <div class="title">LED CONTROL IFRAME</div>
+      <div class="controls">
+        <div class="control on" id="led-on">
+          <div>ON</div>
+          <i class="fas fa-lightbulb"></i>
         </div>
-        <div class="led-box" id="led-off">
-          <p>OFF</p>
-          <img
-            alt="Light bulb icon representing OFF state"
-            src="https://storage.googleapis.com/a1aa/image/esmjp0-7fFL73xy8bbhUE-Zh7qCNCucnR5fnNZy5y0s.jpg"
-          />
+        <div class="control off" id="led-off">
+          <div>OFF</div>
+          <i class="far fa-lightbulb"></i>
         </div>
       </div>
     </div>
